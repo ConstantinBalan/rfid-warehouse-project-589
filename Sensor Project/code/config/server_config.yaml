@@ -1,0 +1,33 @@
+# Central Server Configuration
+
+# MQTT settings for communication with edge nodes
+mqtt:
+  broker: "localhost"  # Host this broker on the central server
+  port: 1883
+  topic_prefix: "warehouse/tracking"
+
+# InfluxDB settings for time series data storage
+influxdb:
+  url: "http://localhost:8086"
+  token: "my-token"  # Replace with actual token in production
+  org: "my-org"
+  bucket: "warehouse_tracking"
+
+# API server settings
+api:
+  host: "0.0.0.0"  # Listen on all interfaces
+  port: 5000
+
+# Processing settings
+processing:
+  # Number of positions to keep in history per tag
+  position_history_length: 100
+  
+  # Data retention period in days
+  data_retention_days: 30
+  
+  # Room dimensions for visualization (meters)
+  room:
+    width: 5.0
+    length: 5.0
+    height: 3.0

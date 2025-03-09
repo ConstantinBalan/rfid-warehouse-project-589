@@ -1,0 +1,56 @@
+Research Problem
+One of the challenges for indoor navigation is creating a live map of the area to keep
+track of obstacles and items located within the area. Typically SLAM (Simultaneous
+location and mapping)1 is used to map a space as operators navigate it. Our objective is
+to improve this process by using a combination of stationary ultra wideband sensors
+placed around impassable objects and RFID identifiers to track objects for the items that
+would be navigated to. The data from these sensors would be edge nodes to process
+the mapping for each node individually. These maps would be sent to a central device
+to combine them into one continuous map. While other solutions have used edge nodes
+for processing SLAM maps, we intend to investigate if our unique inclusion of stationary
+sensors combined with edge processing can improve processing time for mapping.
+
+
+Proposed Solution
+Our solution involves a series of ultra wideband sensors set at the boundaries of
+impassable objects in a warehouse to keep track of the borders for navigation. This
+would be combined with a set of RFID receivers to track the number and location of
+objects within the warehouse. Each row would then be processed by an edge node to
+create an individual map of those sections and would be sent to a main base node to be
+combined into a single map of the warehouse. While other solutions may have used
+edge nodes for mapping, they have included pre constructed mapping2. This solution
+would be unique in using stationary sensors to reduce cost and improve the processing
+efficiency of the map by computing data at the edge nodes individually.
+
+
+
+Referenecs
+2 Zhao, W., Xu, L., Qi, B., Hu, J., Wang, T., & Runge, T. (2020). Vivid: Augmenting vision-based indoor
+navigation system with Edge Computing. IEEE Access, 8, 1–15.
+https://doi.org/10.1109/access.2020.2978123
+1 Zhao, W., Xu, L., Qi, B., Hu, J., Wang, T., & Runge, T. (2020). Vivid: Augmenting vision-based indoor
+navigation system with Edge Computing. IEEE Access, 8, 1–15.
+https://doi.org/10.1109/access.2020.2978123
+
+
+Tools
+Raspberry PI/PI Pico
+Ultra Wideband Sensor
+RFID Sensor
+Grafana
+
+
+Timeline
+2/04 - Gather Raspberry Pi’s and sensors as needed for the project
+2/08 - Begin our project outline and draft
+2/15 - Begin the development of our project
+2/22 - Hardware/Software Development
+3/01 - Hardware/Software Development
+3/08 - Create our testing environment
+3/15 - Initial testing phase
+3/22 - Work on the Midterm Report Submission
+3/29 - Hardware/Software Development
+4/05 - Test the implementation of the system
+4/12 - Complete the project, and fix any last issues that may arise
+4/15 - Final testing to ensure everything functions as intended
+4/17 - Submit, and present the final project

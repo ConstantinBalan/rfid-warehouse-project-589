@@ -1,0 +1,205 @@
+{
+  "main": {
+    "id": "c5f2baab96b12d26",
+    "type": "split",
+    "children": [
+      {
+        "id": "065890ab72737fe1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2a5b7f0406955164",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "agile_sprints/sprint1_simulation_environment.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "sprint1_simulation_environment"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6da29be03ce337dc",
+    "type": "split",
+    "children": [
+      {
+        "id": "fbe57b5b07e69f85",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad2a5cfa91ba8b56",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "891908a825683c91",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "bdd242d8408d01bb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "57e26a74e669eb40",
+    "type": "split",
+    "children": [
+      {
+        "id": "4d7982af6b7bf4bd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1a82b4ac717c59c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "code/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for README"
+            }
+          },
+          {
+            "id": "1275982fb32bcded",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "code/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from README"
+            }
+          },
+          {
+            "id": "06d7812f13f2e454",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "ec10099aba3109aa",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "code/README.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2a5b7f0406955164",
+  "lastOpenFiles": [
+    "code/simulation/requirements.txt",
+    "code/simulation/visualization/data_exporter.py",
+    "code/simulation/rfid_reader_model.py",
+    "code/simulation/uwb_sensor_model.py",
+    "code/simulation/movement_patterns.py",
+    "code/simulation/visualization/movement_patterns.py",
+    "code/simulation/virtual_pallet.py",
+    "code/simulation/warehouse_model.py",
+    "code/simulation/__init__.py",
+    "code/tests",
+    "code/simulation/visualization",
+    "agile_sprints/README.md",
+    "agile_sprints/project_backlog.md",
+    "AGILE_DEVELOPMENT_PLAN.md",
+    "agile_sprints/sprint5_documentation_research.md",
+    "agile_sprints/sprint4_integration_testing.md",
+    "agile_sprints/sprint3_infrastructure_setup.md",
+    "agile_sprints/sprint2_core_algorithms.md",
+    "agile_sprints/sprint1_simulation_environment.md",
+    "code/README.md",
+    "code/docs/installation.md",
+    "00-Project-Tasks-Index.md",
+    "02-Hardware-Setup.md",
+    "plan.md",
+    "07-Project-Management.md",
+    "06-Documentation-and-Reporting.md",
+    "05-Testing.md",
+    "04-Data-Visualization-and-Analysis.md",
+    "03-Software-Development.md",
+    "01-Research-and-Planning.md",
+    "Welcome.md"
+  ]
+}

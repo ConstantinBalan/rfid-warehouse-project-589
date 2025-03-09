@@ -1,0 +1,205 @@
+# RESEARCH METRICS AND EVALUATION METHODOLOGY
+# UWB-RFID Indoor Positioning System
+
+This document outlines the metrics and evaluation methodologies for assessing the performance of the UWB-RFID indoor positioning system for warehouse pallet tracking in an edge computing environment.
+
+## 1. POSITIONING ACCURACY METRICS
+
+### 1.1 Absolute Positioning Accuracy
+- **Mean Absolute Error (MAE)**: Average absolute distance between estimated and true positions (cm)
+- **Root Mean Square Error (RMSE)**: Square root of the average of squared errors (cm)
+- **95th Percentile Error**: Maximum error for 95% of all measurements (cm)
+- **Cumulative Distribution Function (CDF)**: Plot showing percentage of measurements with error less than a given value
+
+### 1.2 Relative Positioning Accuracy
+- **Inter-tag Distance Error**: Accuracy of distance measurements between pairs of tags
+- **Trajectory Accuracy**: Deviation from known movement paths (cm)
+- **Return Position Error**: Deviation when tag returns to a previous position (cm)
+
+### 1.3 Spatial Distribution Analysis
+- **Spatial Error Map**: Heatmap showing error distribution across the monitored area
+- **Corner vs. Center Accuracy**: Comparison of accuracy near room corners versus central areas
+- **Height Accuracy**: Vertical positioning accuracy compared to horizontal accuracy
+
+### 1.4 Evaluation Methodology
+1. Place reference tags at precisely measured positions throughout the room
+2. Collect position estimates from the system over 24-hour period
+3. Calculate error metrics at each reference point
+4. Generate spatial error distribution visualizations
+5. Analyze accuracy under different room occupancy conditions
+
+## 2. LATENCY AND TIMING METRICS
+
+### 2.1 Component-Level Latency
+- **Sensor Reading Time**: Time to obtain raw distance measurements from UWB sensors (ms)
+- **RFID Read Time**: Time to obtain tag readings from RFID readers (ms)
+- **Edge Processing Time**: Time to calculate position on edge node (ms)
+- **Transmission Latency**: Time to transmit data from edge to central server (ms)
+- **Database Write Time**: Time to store position data in InfluxDB (ms)
+- **Visualization Update Time**: Time for position updates to appear in Grafana (ms)
+
+### 2.2 End-to-End Latency
+- **Total System Latency**: Time from physical movement to visualization update (ms)
+- **Positioning Update Rate**: Number of complete position updates per second
+- **Jitter**: Variation in update intervals (ms)
+
+### 2.3 Evaluation Methodology
+1. Instrument each component with high-precision timestamps
+2. Conduct controlled movement tests with known timing
+3. Measure latency under different loads (1, 5, 10, 20 tags)
+4. Compare results between edge processing and simulated centralized processing
+5. Analyze latency distribution characteristics with statistical methods
+
+## 3. EDGE COMPUTING PERFORMANCE METRICS
+
+### 3.1 Edge Node Resource Utilization
+- **CPU Utilization**: Percentage of CPU used on edge nodes (%)
+- **Memory Usage**: RAM consumption on edge nodes (MB)
+- **Storage Requirements**: Disk space needed for local data caching (MB)
+- **Network Bandwidth**: Data transmission rates between components (KB/s)
+- **Power Consumption**: Energy usage of edge nodes (W)
+
+### 3.2 Edge vs. Centralized Processing Comparison
+- **Computational Efficiency**: Processing time comparison between distributed and centralized approaches
+- **Bandwidth Reduction**: Percentage reduction in network traffic compared to centralized processing
+- **Scalability Factor**: How performance changes with additional tags/sensors
+- **Fault Tolerance**: System performance during node failures or network issues
+
+### 3.3 Evaluation Methodology
+1. Monitor system resources using standard Linux tools (top, iostat, iftop)
+2. Record baseline measurements for both edge and simulated centralized processing
+3. Gradually increase system load and record performance metrics
+4. Intentionally introduce failures to test resilience
+5. Analyze resource utilization patterns at different load levels
+
+## 4. SYSTEM SCALABILITY METRICS
+
+### 4.1 Capacity Metrics
+- **Maximum Tags per Edge Node**: Number of tags that can be tracked before performance degrades
+- **Maximum Edge Nodes per Central Server**: Maximum number of edge nodes a single server can handle
+- **Room Size Scalability**: Maximum area that can be effectively monitored
+- **Update Rate vs. Number of Tags**: How position update frequency changes with more tags
+
+### 4.2 Performance Degradation Characteristics
+- **Graceful Degradation**: How system performance degrades under increasing load
+- **Breaking Points**: Load levels at which system components fail
+- **Recovery Time**: Time to restore normal operation after overload
+
+### 4.3 Evaluation Methodology
+1. Start with minimal configuration (4 sensors, 1 tag)
+2. Incrementally add tags (virtual or physical) until performance degradation is observed
+3. Measure all performance metrics at each capacity level
+4. Identify bottlenecks through component-level monitoring
+5. Develop scalability model based on empirical results
+
+## 5. POSITIONING ALGORITHM PERFORMANCE
+
+### 5.1 Algorithm Comparison Metrics
+- **Accuracy Comparison**: Positioning error for different trilateration methods
+- **Computational Efficiency**: Processing time for each algorithm
+- **Robustness to Noise**: Algorithm performance with injected measurement noise
+- **Convergence Rate**: Number of iterations required for algorithms to converge
+
+### 5.2 Sensor Placement Optimization
+- **Optimal Geometry**: Best sensor placement for maximum accuracy
+- **Minimum Sensors**: Minimum number of sensors required for reliable positioning
+- **Sensor Redundancy**: Accuracy improvement with additional sensors
+
+### 5.3 Evaluation Methodology
+1. Implement multiple positioning algorithms (LSE, nonlinear optimization, etc.)
+2. Test each algorithm with identical input data
+3. Measure accuracy and computational requirements
+4. Test various sensor placement configurations
+5. Analyze trade-offs between accuracy, computational cost, and sensor count
+
+## 6. SYSTEM RELIABILITY METRICS
+
+### 6.1 Reliability Indicators
+- **System Uptime**: Percentage of time the system is fully operational
+- **Mean Time Between Failures (MTBF)**: Average time between system failures
+- **Mean Time to Recovery (MTTR)**: Average time to restore system after failure
+- **Error Rate**: Frequency of erroneous position calculations
+
+### 6.2 Environmental Factors
+- **Performance vs. Temperature**: System accuracy at different ambient temperatures
+- **RF Interference Resilience**: System performance with deliberate RF interference
+- **Physical Obstruction Handling**: Accuracy when line-of-sight is partially blocked
+
+### 6.3 Evaluation Methodology
+1. Conduct long-term (30+ days) continuous operation tests
+2. Record all system errors and failures
+3. Introduce environmental challenges (heat, interference, obstacles)
+4. Measure recovery capabilities after induced failures
+5. Analyze environmental effects on system performance
+
+## 7. USER EXPERIENCE METRICS
+
+### 7.1 Visualization Performance
+- **Dashboard Loading Time**: Time to load the Grafana dashboard (s)
+- **Map Update Responsiveness**: Delay between data change and map update (ms)
+- **Query Performance**: Time to retrieve historical data (s)
+
+### 7.2 System Usability
+- **System Deployment Time**: Time required to set up the complete system (hours)
+- **Calibration Effort**: Time and complexity of system calibration
+- **Maintenance Requirements**: Ongoing maintenance tasks and frequency
+
+### 7.3 Evaluation Methodology
+1. Measure objective timing metrics for all user-facing components
+2. Conduct usability testing with potential system operators
+3. Document deployment process with timing for each step
+4. Collect subjective feedback on dashboard usability
+5. Identify opportunities for usability improvements
+
+## 8. COMPARATIVE EVALUATION
+
+### 8.1 Comparison with Existing Solutions
+- **Commercial System Comparison**: Performance vs. commercial indoor positioning systems
+- **Academic Solutions**: Comparison with published research results
+- **Cost-Effectiveness Analysis**: Performance per dollar compared to alternatives
+
+### 8.2 Edge Computing Benefit Quantification
+- **Centralized vs. Edge Processing**: Direct comparison of key metrics
+- **Network Load Reduction**: Measured bandwidth savings
+- **Responsiveness Improvement**: Latency reduction compared to centralized approach
+
+### 8.3 Evaluation Methodology
+1. Identify key commercial and academic baseline systems
+2. Implement comparable metrics for fair comparison
+3. Conduct side-by-side testing when possible
+4. Implement both edge and centralized processing modes for direct comparison
+5. Calculate return on investment for edge computing approach
+
+## 9. DATA COLLECTION PLAN
+
+### 9.1 Experiment Setup
+- Fixed reference points with precisely measured coordinates
+- Controlled movement patterns for dynamic testing
+- Various load levels (number of tags) for scalability testing
+- Multiple room configurations and sensor placements
+
+### 9.2 Data Collection Schedule
+- Initial baseline measurements (1 week)
+- Long-term performance monitoring (1 month)
+- Stress testing and failure scenarios (1 week)
+- Environmental variation testing (1 week)
+
+### 9.3 Statistical Validity
+- Minimum sample sizes for each metric
+- Confidence interval calculations
+- Statistical significance testing
+- Outlier detection and handling
+
+## 10. EXPECTED RESEARCH OUTCOMES
+
+### 10.1 Primary Research Contributions
+- Quantification of edge computing benefits for indoor positioning
+- Optimal sensor placement methodology for UWB-based systems
+- Performance bounds for UWB-RFID hybrid positioning
+- Scalability model for warehouse-scale tracking systems
+
+### 10.2 Actionable Insights
+- Best practices for UWB sensor deployment
+- Optimal processing distribution between edge and central nodes
+- Performance tuning recommendations for similar systems
+- Technology readiness assessment for industrial applications

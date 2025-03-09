@@ -1,0 +1,169 @@
+# UWB-RFID INDOOR POSITIONING SYSTEM: CODEBASE DOCUMENTATION
+
+This document provides an overview of all the code files in the UWB-RFID Indoor Positioning System project, explaining their purpose and functionality.
+
+## PROJECT STRUCTURE
+
+The codebase is organized into the following directories:
+
+```
+code/
+│
+├── uwb/                  # Ultra-wideband sensor interface and processing
+├── rfid/                 # RFID reader interface and tag management
+├── edge/                 # Edge node processing modules
+├── server/               # Central server implementation
+├── config/               # Configuration files
+├── visualization/        # Grafana dashboard templates
+├── docs/                 # Documentation
+└── testing/              # Testing and performance evaluation
+```
+
+## FILE DESCRIPTIONS
+
+### Core Modules
+
+1. **uwb/uwb_interface.py**
+   - Provides the interface for communicating with DWM1000/DWM3000 Ultra-Wideband sensors
+   - Handles SPI communication with UWB hardware
+   - Implements distance measurement between UWB devices
+   - Manages sensor positioning and identification
+
+2. **uwb/trilateration.py**
+   - Implements 3D trilateration algorithms for position calculation
+   - Contains multiple positioning algorithms (linear least squares, nonlinear optimization)
+   - Provides position error calculation and validation
+   - Handles noisy distance measurements through multilateral approaches
+
+3. **rfid/rfid_interface.py**
+   - Provides the interface for RFID readers to detect tags attached to pallets
+   - Manages serial communication with RFID hardware
+   - Handles tag database loading and registration
+   - Implements simulation mode for testing without hardware
+
+4. **edge/edge_node.py**
+   - Implements edge computing functionality for local sensor data processing
+   - Manages UWB and RFID sensors connected to the edge node
+   - Performs trilateration to calculate tag positions
+   - Publishes position and tag data to the central server via MQTT
+   - Handles local caching and error recovery
+
+5. **server/central_server.py**
+   - Aggregates data from all edge nodes
+   - Stores position and tag data in InfluxDB time series database
+   - Provides REST API endpoints for querying current positions and history
+   - Manages system-wide status monitoring
+   - Integrates with Grafana for visualization
+
+### Configuration Files
+
+6. **config/edge_config.yaml**
+   - Configuration for edge nodes
+   - Defines UWB sensor positions and hardware settings
+   - Configures RFID reader connections
+   - Sets MQTT communication parameters
+   - Controls processing algorithms and update intervals
+
+7. **config/server_config.yaml**
+   - Configuration for the central server
+   - Defines MQTT broker settings
+   - Sets up InfluxDB connection parameters
+   - Configures the REST API server
+   - Controls data retention and history settings
+
+### Visualization
+
+8. **visualization/grafana_dashboard.json**
+   - Grafana dashboard template for the positioning system
+   - Includes panels for warehouse floor map, showing pallet positions
+   - Provides position tracking graphs for X and Y coordinates
+   - Displays statistics on tracked pallets and content types
+   - Configured to connect to the InfluxDB data source
+
+### Documentation
+
+9. **docs/installation.md**
+   - Complete installation guide for the entire system
+   - Hardware requirements and physical installation instructions
+   - Software installation steps for edge nodes and central server
+   - Configuration and calibration procedures
+   - Troubleshooting information
+
+10. **README.md**
+    - Project overview and introduction
+    - System architecture diagram
+    - Directory structure explanation
+    - Getting started instructions
+    - Research methodology and metrics
+
+### Testing & Performance Evaluation
+
+11. **testing/performance_evaluator.py**
+    - Tools for measuring system performance metrics
+    - Positioning accuracy evaluation under different conditions
+    - Latency measurement across the system
+    - Processing load monitoring on edge and central nodes
+    - Bandwidth utilization analysis
+    - Scalability testing with varying numbers of tags and sensors
+
+12. **testing/system_simulator.py**
+    - Simulates a complete UWB-RFID positioning system
+    - Generates synthetic tag movements and sensor readings
+    - Allows testing without physical hardware
+    - Supports various room layouts and movement patterns
+    - Includes configurable noise models for realistic testing
+
+## HOW THE SYSTEM WORKS
+
+1. **Data Collection Layer**
+   - UWB sensors measure distances to tags attached to pallets
+   - RFID readers identify tags and provide additional pallet information
+   - Both sensor types connect to edge computing nodes
+
+2. **Edge Processing Layer**
+   - Each edge node collects data from connected sensors
+   - Local processing performs trilateration to calculate positions
+   - Edge nodes filter and validate measurements locally
+   - Processed data is compressed and sent to the central server
+
+3. **Central Processing Layer**
+   - Central server aggregates data from all edge nodes
+   - Combines position data with tag identity information
+   - Stores historical data in InfluxDB time series database
+   - Provides real-time API access to current and historical positions
+
+4. **Visualization Layer**
+   - Grafana dashboards display real-time pallet positions
+   - Historical movement patterns can be analyzed
+   - Statistical information on warehouse utilization is presented
+   - Alert conditions can be configured for specific situations
+
+## RESEARCH METRICS
+
+The system is designed to collect the following performance metrics for research:
+
+1. **Positioning Accuracy**
+   - Mean absolute error (cm)
+   - 95th percentile error (cm)
+   - Error distribution by location within room
+
+2. **System Latency**
+   - Sensor-to-edge processing time (ms)
+   - Edge-to-central transmission time (ms)
+   - End-to-end latency (ms)
+   - Jitter analysis
+
+3. **Processing Distribution**
+   - CPU load on edge nodes (%)
+   - Memory utilization on edge nodes (MB)
+   - Processing time comparison between edge and centralized approaches
+
+4. **Bandwidth Utilization**
+   - Raw data volume from sensors (KB/s)
+   - Edge-to-central transmission volume (KB/s)
+   - Compression and optimization effectiveness (%)
+
+5. **Scalability Characteristics**
+   - Performance impact of additional tags
+   - Performance impact of additional edge nodes
+   - Maximum sustainable load per edge node

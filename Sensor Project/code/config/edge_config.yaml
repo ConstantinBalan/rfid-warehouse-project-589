@@ -1,0 +1,76 @@
+# Edge Node Configuration
+
+# MQTT settings for communication with central server
+mqtt:
+  broker: "localhost"  # Change to central server IP in production
+  port: 1883
+  topic_prefix: "warehouse/tracking"
+
+# UWB sensor configuration
+uwb:
+  sensors:
+    # Define each UWB sensor
+    - id: "uwb_1"
+      position: [0.0, 0.0, 2.5]  # [x, y, z] coordinates in meters
+      spi_bus: 0
+      spi_device: 0
+      reset_pin: 17
+      irq_pin: 27
+      
+    - id: "uwb_2"
+      position: [5.0, 0.0, 2.5]  # Corner 2
+      spi_bus: 0
+      spi_device: 1
+      reset_pin: 22
+      irq_pin: 23
+      
+    - id: "uwb_3"
+      position: [5.0, 5.0, 2.5]  # Corner 3
+      spi_bus: 1
+      spi_device: 0
+      reset_pin: 24
+      irq_pin: 25
+      
+    - id: "uwb_4"
+      position: [0.0, 5.0, 2.5]  # Corner 4
+      spi_bus: 1
+      spi_device: 1
+      reset_pin: 5
+      irq_pin: 6
+  
+  # Update interval for distance measurements (seconds)
+  update_interval: 1.0
+
+# RFID reader configuration
+rfid:
+  readers:
+    # Define each RFID reader
+    - id: "rfid_1"
+      port: "/dev/ttyUSB0"
+      baud_rate: 9600
+      simulate: true  # Set to false for real hardware
+    
+    - id: "rfid_2"
+      port: "/dev/ttyUSB1"
+      baud_rate: 9600
+      simulate: true  # Set to false for real hardware
+  
+  # Path to tag database file
+  tag_database: "config/tags.json"
+  
+  # Update interval for tag readings (seconds)
+  update_interval: 0.5
+
+# Processing settings
+processing:
+  # Number of positions to keep in history
+  position_buffer_size: 10
+  
+  # Trilateration method: 'lls', 'nonlinear', or 'multi'
+  trilateration_method: "multi"
+  
+  # Whether to filter outlier positions
+  filter_outliers: true
+  
+  # Filter parameters
+  filter_threshold: 1.0  # meters
