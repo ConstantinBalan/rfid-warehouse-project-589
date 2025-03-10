@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "agile_sprints/sprint1_simulation_environment.md",
+                "file": "Research_Paper_Outline.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sprint1_simulation_environment"
+              "title": "Research_Paper_Outline"
             }
           }
         ]
@@ -170,6 +170,9 @@
   },
   "active": "2a5b7f0406955164",
   "lastOpenFiles": [
+    "AGILE_DEVELOPMENT_PLAN.md",
+    "Research_Paper_Outline.md",
+    "agile_sprints/sprint1_simulation_environment.md",
     "code/simulation/requirements.txt",
     "code/simulation/visualization/data_exporter.py",
     "code/simulation/rfid_reader_model.py",
@@ -180,15 +183,12 @@
     "code/simulation/warehouse_model.py",
     "code/simulation/__init__.py",
     "code/tests",
-    "code/simulation/visualization",
     "agile_sprints/README.md",
     "agile_sprints/project_backlog.md",
-    "AGILE_DEVELOPMENT_PLAN.md",
     "agile_sprints/sprint5_documentation_research.md",
     "agile_sprints/sprint4_integration_testing.md",
     "agile_sprints/sprint3_infrastructure_setup.md",
     "agile_sprints/sprint2_core_algorithms.md",
-    "agile_sprints/sprint1_simulation_environment.md",
     "code/README.md",
     "code/docs/installation.md",
     "00-Project-Tasks-Index.md",
